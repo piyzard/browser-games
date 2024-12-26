@@ -17,11 +17,16 @@ function startGame() {
     direction = 'RIGHT';
     food = generateFood();
     scoreDisplay.textContent = `Score: ${score}`;
+
+    // Hide game over message when restarting
+    const gameOverMessage = document.getElementById('gameOverMessage');
+    gameOverMessage.classList.add('hidden');  // Make sure the game over message is hidden
     
     // Clear the canvas and start the game loop
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     gameInterval = setInterval(gameLoop, 100); // 100ms for game speed
 }
+
 
 // Generate food at a random position
 function generateFood() {
