@@ -3,8 +3,12 @@ const ctx = canvas.getContext('2d');
 const scoreDisplay = document.getElementById('score');
 const restartButton = document.getElementById('restartBtn');
 
+// Set canvas size to be responsive
+canvas.width = Math.min(window.innerWidth, 400); // Limit max width
+canvas.height = Math.min(window.innerHeight, 400); // Limit max height
+
 const gridSize = 20; // Size of each grid block
-let snake = [{x: 200, y: 200}]; // Initial position of the snake
+let snake = [{ x: 200, y: 200 }]; // Initial position of the snake
 let direction = 'RIGHT'; // Initial direction
 let food = generateFood(); // Position of food
 let score = 0;
@@ -13,26 +17,25 @@ let gameInterval;
 // Initialize the game
 function startGame() {
     score = 0;
-    snake = [{x: 200, y: 200}];
+    snake = [{ x: 200, y: 200 }];
     direction = 'RIGHT';
     food = generateFood();
     scoreDisplay.textContent = `Score: ${score}`;
 
     // Hide game over message when restarting
     const gameOverMessage = document.getElementById('gameOverMessage');
-    gameOverMessage.classList.add('hidden');  // Make sure the game over message is hidden
-    
+    gameOverMessage.classList.add('hidden');
+
     // Clear the canvas and start the game loop
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     gameInterval = setInterval(gameLoop, 100); // 100ms for game speed
 }
 
-
 // Generate food at a random position
 function generateFood() {
     const x = Math.floor(Math.random() * (canvas.width / gridSize)) * gridSize;
     const y = Math.floor(Math.random() * (canvas.height / gridSize)) * gridSize;
-    return {x, y};
+    return { x, y };
 }
 
 // Game loop function
@@ -90,24 +93,29 @@ function isCollidingWithSnake(head) {
 
 // Handle keyboard input for snake movement
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowUp' || e.key === 'w' && direction !== 'DOWN') direction = 'UP';
-    if (e.key === 'ArrowDown' || e.key === 's' && direction !== 'UP') direction = 'DOWN';
-    if (e.key === 'ArrowLeft' || e.key === 'a' && direction !== 'RIGHT') direction = 'LEFT';
-    if (e.key === 'ArrowRight' || e.key === 'd' && direction !== 'LEFT') direction = 'RIGHT';
+    if ((e.key === 'ArrowUp' || e.key === 'w') && direction !== 'DOWN') direction = 'UP';
+    if ((e.key === 'ArrowDown' || e.key === 's') && direction !== 'UP') direction = 'DOWN';
+    if ((e.key === 'ArrowLeft' || e.key === 'a') && direction !== 'RIGHT') direction = 'LEFT';
+    if ((e.key === 'ArrowRight' || e.key === 'd') && direction !== 'LEFT') direction = 'RIGHT';
 });
+
+// Handle touch input for snake movement
+document.getElementById('upBtn').addEventListener('click', () => { if (direction !== 'DOWN') direction = 'UP'; });
+document.getElementById('downBtn').addEventListener('click', () => { if (direction !== 'UP') direction = 'DOWN'; });
+document.getElementById('leftBtn').addEventListener('click', () => { if (direction !== 'RIGHT') direction = 'LEFT'; });
+document.getElementById('rightBtn').addEventListener('click', () => { if (direction !== 'LEFT') direction = 'RIGHT'; });
 
 // End the game
 function endGame() {
     clearInterval(gameInterval);
-    
+
     // Display game over message
     const gameOverMessage = document.getElementById('gameOverMessage');
     const finalScore = document.getElementById('finalScore');
-    
-    finalScore.textContent = score;  // Display the final score
-    gameOverMessage.classList.remove('hidden');  // Remove 'hidden' to show the message
-}
 
+    finalScore.textContent = score; // Display the final score
+    gameOverMessage.classList.remove('hidden'); // Remove 'hidden' to show the message
+}
 
 // Restart the game
 restartButton.addEventListener('click', startGame);

@@ -79,3 +79,29 @@ canvas {
     text-align: center;
     padding-top: 50px;
 }
+
+#touchControls {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#touchControls button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    margin: 5px;
+}
+
+/* Hide touch controls on larger screens (PCs) */
+@media (min-width: 768px) {
+    #touchControls {
+        display: none;
+    }
+}
+
+canvas {
+    border: 1px solid #000;
+    display: block;
+    margin: 0 auto;
+}
