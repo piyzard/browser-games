@@ -75,15 +75,31 @@ canvas {
 }
 
 /* Optional: Additional styling for the game container */
-.game-container {
-    text-align: center;
-    padding-top: 50px;
+#gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+#gameCanvas {
+    border: 1px solid #000;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Touch Controls */
 #touchControls {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin-top: 10px;
+}
+
+#touchControls div {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
 }
 
 #touchControls button {
@@ -91,6 +107,7 @@ canvas {
     height: 50px;
     font-size: 20px;
     margin: 5px;
+    text-align: center;
 }
 
 /* Hide touch controls on larger screens (PCs) */
@@ -98,10 +115,4 @@ canvas {
     #touchControls {
         display: none;
     }
-}
-
-canvas {
-    border: 1px solid #000;
-    display: block;
-    margin: 0 auto;
 }
