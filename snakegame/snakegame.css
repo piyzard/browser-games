@@ -1,0 +1,81 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.game-container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+canvas {
+    border: 1px solid #333;
+}
+
+#score {
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#restartBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#restartBtn:hover {
+    background-color: #45a049;
+}
+
+.hidden {
+    display: none;
+}
+
+#gameOverMessage {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgb(179, 179, 179);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background-color: grey;
+}
+
+/* Optional: Additional styling for the game container */
+.game-container {
+    text-align: center;
+    padding-top: 50px;
+}

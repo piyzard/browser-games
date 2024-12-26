@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stone, Paper, Scissors Game</title>
+    <link rel="stylesheet" href="stonepaperscissors.css">
+    <link rel="icon" href="../assets/icon.png" type="image/x-icon">
+</head>
+<body>
+    <!-- New Go Back Button at the top left -->
+    <a href="../index.html"><button id="back" class="back-btn" >Go Back</button></a>
+
+    <div class="game-container">
+        <h1>Stone, Paper, Scissors</h1>
+        <div id="choices">
+            <button class="choice-btn" id="stone">Stone</button>
+            <button class="choice-btn" id="paper">Paper</button>
+            <button class="choice-btn" id="scissors">Scissors</button>
+        </div>
+        <div id="result">
+            <p>Your choice: <span id="player-choice"></span></p>
+            <p>AI's choice: <span id="ai-choice"></span></p>
+            <p id="winner"></p>
+        </div>
+        <button id="reset" class="reset-btn">Play Again</button>
+    </div>
+
+    <script src="stonepaperscissors.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="snakegame.css">
+    <link rel="icon" href="../assets/icon.png" type="image/x-icon">
+</head>
+<body>
+    <!-- New Go Back Button at the top left -->
+    <a href="../index.html"><button id="back" class="back-btn" >Go Back</button></a>
+    
+    <div class="game-container">
+        <h1>Snake Game</h1>
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <div id="score">Score: 0</div>
+        <button id="restartBtn">Restart Game</button>
+        <!-- Game Over message -->
+        <div id="gameOverMessage" class="hidden">Game Over! Your score was <span id="finalScore"></span></div>
+    </div>
+    <script src="snakegame.js"></script>
+</body>
+</html>
