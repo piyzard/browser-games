@@ -15,6 +15,9 @@ gameCards.forEach(card => {
             case 'game3':
                 window.location.href = 'snakegame/snakegame.html';  // Navigate to Snake Game page
                 break;
+            case 'game4':
+                window.location.href = 'numberguess/numberguess.html';  // Navigate to Snake Game page
+                break;
             default:
                 alert('Game not available!');
         }
